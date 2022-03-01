@@ -1,0 +1,4 @@
+Template Woo Product@@@product_title###<h[1-3] .*?class=".*?product_title entry-title.*?">###<\/h[1-3]>@@@product_description###<div .*?class=".*?woocommerce-product-details__short-description.*?">###<\/div>
+Template Yahoo News@@@news_title###<h1 data-test-locator="headline">###<\/h1>@@@news_body###<div class="caas-body">###<\/div>@@@news_date###<time.*?>###<\/time>
+Template Reddit@@@post_title###<title>###<\/title>@@@post_description###RichTextJSON-root">###<\/div>
+Template Amazon.com@@@product_title###<span id="productTitle.*?>###<\/span>@@@product_description###<!-- show up to 2 reviews by default -->###<\/div>

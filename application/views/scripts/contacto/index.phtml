@@ -1,0 +1,55 @@
+        <div class="banner1" style="background:url(<?php echo '/'.$this->pagina['imagen']; ?>) no-repeat 0px 0px;     background-size: cover;">
+            <div class="container">
+                <h3><a href="<?php echo $this->baseUrl('/'); ?>">Inicio</a> / <a href="#">Contacto</a> </h3>
+            </div>
+        </div>
+    <!--banner-->
+
+    <!--content-->
+            <div class="content">
+                <!--contact-->
+                    <div class="mail-w3ls">
+                        <div class="container">
+                            <h2 class="tittle">Envienos Un Correo </h2>
+                            <div class="mail-grids">
+                                <div class="mail-top">
+                                    <div class="col-md-4 mail-grid">
+                                        <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+                                        <h5>Direccion </h5>
+                                        <p><?php echo $this->identidad['direccion']; ?></p>
+                                    </div>
+                                    <div class="col-md-4 mail-grid">
+                                        <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+                                        <h5>Telefono</h5>
+                                        <p><?php echo $this->identidad['telefono']; ?></p>
+                                    </div>
+                                    <div class="col-md-4 mail-grid">
+                                        <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+                                        <h5>E-mail</h5>
+                                        <p>E-mail:<a href="mailto:example@mail.com"> <?php echo $this->identidad['email']; ?></a></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="map-w3">
+                                
+
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.138986415355!2d-67.60534594454798!3d10.25037259836417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e803c9eaee334e1%3A0xe82c4d0ce1db5742!2sAvenida+Miranda%2C+Maracay%2C+Aragua!5e0!3m2!1ses!2sve!4v1506549022985"  allowfullscreen></iframe>
+                                </div>
+                                <div class="mail-bottom">
+                                    <h4>Manten contacto con nosotros</h4>
+                                    <form action="#" method="post">
+                                        <input type="text" value="Name" id="nombre" name="nombre" placeholder="Nombre" required="">
+                                        <input type="email" value="Email"  id="email" name="email" placeholder="Email" required="">
+                                        <input type="text" value="Telephone" id="tlf" name="tlf" placeholder="Telefono" required="">
+                                        <textarea id="mensaje" name="mensaje"   placeholder="Mensaje"   required=""></textarea>
+                                        <input type="button" class="btn btn-primary" onclick="enviarCorreo();" value="Enviar" >
+                                        <input type="reset" value="Reiniciar" >
+
+                                    </form>
+                                    <div id="respuesta"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!--contact-->
+            </div>

@@ -1,0 +1,313 @@
+
+<div class="row" style="text-align: center; min-height: 6em;">
+	
+	<div class="col-sm-4 alert-info" style="text-align: center;min-height: 6em;padding: 1em;">
+
+		<h3>Numero de Pedidos</h3>
+
+		<h1><?php echo count($this->pedidos); ?></h1>
+		
+	</div>
+	<div class="col-sm-4 alert-success" style="text-align: center;min-height: 6em;padding: 1em;">
+
+		<h3>Numero de Clientes</h3>
+
+		<h1><?php echo count($this->clientes); ?></h1>
+		
+	</div>
+	<div class="col-sm-4 alert-warning" style="text-align: center;min-height: 6em;padding: 1em;">
+
+		<h3>Total de Ventas</h3>
+
+		<?php $total_ventas=0; ?>
+
+		<?php foreach ($this->pedidos as $p): ?>
+
+		<?php $total_ventas=$total_ventas+$p->total; ?>	
+			
+		<?php endforeach ?>
+
+		<h1><?php echo $total_ventas; ?></h1>
+		
+	</div>
+</div>
+
+
+<div class="row">
+
+	
+
+
+
+	<div class="col-sm-12">
+
+		<div style="margin: 1em;" class="w">
+			
+		<div class="panel panel-default">
+  <div class="panel-body table-responsive" style="font-size: 0.9em">
+
+		<h3> <?php if (isset($this->recibidos)): ?>
+			<?php echo count($this->recibidos ) ?>
+		<?php endif ?>  Pedidos Recibidos</h3>
+
+
+
+
+		<table class="table  " id="">
+        <thead style=""><tr>
+            <th>Id</th>
+             <th >Telefono</th>
+             <th >Cliente</th>
+             <th style="font-size: 0.8em;" >Direccion</th>
+            <th>Total</th>
+            <th class="hidden-xs">Fecha </th>
+            <th>Observacion </th>
+            <th>Contenido </th>
+           
+        </tr></thead><tbody>
+        <?php foreach ($this->recibidos as $row): ?>
+		
+            <tr>
+                <td><?php echo $row->id; ?></td>
+                <td ><a target="_blank" href="https://wa.me/57"<?php echo $row->tlf; ?>><?php echo $row->tlf; ?></a></td>
+                <td ><?php echo $row->nombre; ?></td>
+                <td ><?php echo $row->direccion; ?></td>
+                <td><?php echo number_format($row->total,0,'',''); ?></td>
+                <td class="hidden-xs"><?php echo $row->fecha; ?></td>
+                <td class="hidden-xs"><?php echo $row->descripcion_pedido; ?></td>
+                <td class="hidden-xs">
+
+                		
+                	<?php if (isset($this->detalles[$row->id])): ?>
+
+                		<?php foreach ($this->detalles[$row->id] as $d): ?>
+
+                			<p><?php echo $d->nombre; ?></p>
+                			
+                		<?php endforeach ?>
+                			
+                	<?php endif ?>
+
+
+                </td>
+
+            </tr>
+        <?php endforeach; ?>
+		</tbody>
+	</table>
+
+	</div>
+	</div>
+	</div>
+
+
+	</div>
+
+
+
+
+	<div class="col-sm-12">
+
+		<div style="margin: 1em;" class="w">
+
+			<div class="panel panel-default">
+  <div class="panel-body table-responsive" style="font-size: 0.9em">
+
+		<h3> <?php if (isset($this->enviados)): ?>
+			<?php echo count($this->enviados ) ?>
+		<?php endif ?>Pedidos Enviados</h3>
+
+		<table class="table table-hover table-striped table-responsive" id="">
+        <thead style="backgroun"><tr>
+            <th>Id</th>
+             <th >Telefono</th>
+             <th >Cliente</th>
+             <th >Direccion</th>
+            <th>Total</th>
+            <th class="hidden-xs">Fecha </th>
+            <th>Observacion </th>
+           
+        </tr></thead><tbody>
+        <?php foreach ($this->enviados as $row): ?>
+		
+            <tr>
+                <td><?php echo $row->id; ?></td>
+                <td ><a target="_blank" href="https://wa.me/57<?php echo $row->tlf; ?>"><?php echo $row->tlf; ?></a></td>
+                <td ><?php echo $row->nombre; ?></td>
+                <td ><?php echo $row->direccion; ?></td>
+                <td><?php echo number_format($row->total,0,'',''); ?></td>
+                <td class="hidden-xs"><?php echo $row->fecha; ?></td>
+                <td class="hidden-xs"><?php echo $row->descripcion_pedido; ?></td>
+
+            </tr>
+        <?php endforeach; ?>
+		</tbody>
+	</table>
+</div>
+</div>
+</div>
+
+	</div>
+
+
+
+
+</div>
+
+
+<div class="row">
+	
+	<div class="col-sm-12">
+		
+		<div id="aplicacion">
+		    <p>Ingrese una edad:
+		    <input type="number" v-model="edad"></p>
+		    <p v-if="edad>=18">Es mayor de edad.</p>   
+		    <p>Su edada es {{edad}}</p> 
+
+		    <hr>
+
+		    <ul>
+		      <li v-for="lenguaje in lenguajes">{{lenguaje}}</li>
+		    </ul>
+
+
+		    <hr>
+
+
+
+		    <table class="table" border="1">
+		      <tr><td>Código</td><td>Descripción</td><td>Precio</td></tr>
+		      <template v-for="articulo in articulos">
+		        <tr>
+		          <td>{{articulo.codigo}}</td>
+		          <td>{{articulo.descripcion}}</td>
+		          <td>{{articulo.precio}}</td>
+		        </tr>
+		      </template>
+		    </table>
+
+		    <br>
+
+
+		    <form v-on:submit.prevent="agregarArticulo">
+		      <p>
+		        Ingrese código:<input type="number" v-model="codigo">
+		      </p>
+		      <p>
+		        Ingrese descripción:<input type="text" v-model="descripcion">
+		      </p>
+		      <p>
+		        Ingrese precio:<input type="text" v-model="precio">
+		      </p>
+		      <p><input type="submit" value="Agregar"></p>
+		    </form>
+
+		    <br>	
+
+		    <hr>
+
+
+		        <button class="btn btn-primary"  v-on:click="contador = contador + 1">El contador vale:{{contador}}</button>
+
+		        <button class="btn btn-primary"  v-on:click="reiniciar">Reiniciar</button>
+
+		         <button class="btn btn-primary"  v-on:click="edad = contador">Asignar a edad</button>
+
+		     <hr>
+
+
+		     <h1>Listado de actividades</h1>
+			    <ol>
+			      <li v-for="actividad in actividades">
+			        {{actividad}}
+			      </li>
+			    </ol>
+			   
+			  Nueva actividad:<input class="form-control" type="text" v-on:keyup.enter="actualizarLista" v-model="actividad" placeholder="Enter para confirmar">
+
+
+			  <hr>
+
+
+			  	<p>Ingrese su nombre:<input class="form-control" type="text" v-model="nombre"></p>
+			    <p>Ingrese su apellido:<input class="form-control" type="text" v-model="apellido"></p>
+			    <p>Nombre completo: {{nombreCompleto}}</p>
+
+
+			    <hr>
+
+			    <p>Tamaño de la fuente:
+      <input type="range" v-model="tamañoFuente" min=10 max=100>{{tamañoFuente}}
+    </p>
+    <p>Color:
+        <input type="color" v-model="colorParrafo">
+    </p>      
+    <p v-bind:style="{'font-size':tamañoFuente+'px', 'color': colorParrafo}">Párrafo de prueba</p>
+
+
+
+    		<hr>
+
+    		<button v-on:click="recuperarVentas()">Recuperar Ventas</button>
+
+    		<table class="table table-striped">
+    			
+    			<tr>
+    				<th>Id</th>
+    				<th>Nombre</th>
+    				<th>Telefono</th>
+    				<th>Direccion</th>
+    				<th>Monto</th>
+    			</tr>
+
+    			 <template v-for="venta in ventas">
+		        <tr>
+		          <td>{{venta.id}}</td>
+		          <td>{{venta.nombre}}</td>
+		          <td>{{venta.tlf}}</td>
+		          <td>{{venta.direccion}}</td>
+		          <td>{{venta.total}}</td>
+		        </tr>
+		      </template>
+
+
+
+    		</table>
+
+
+    		<hr>
+
+
+    		<hola-mundo></hola-mundo>
+
+
+    		<hr>
+
+
+    		<articulos v-bind:datos="articulos"></articulos>
+
+
+    		<hr>
+
+    		<ventas v-bind:datos="ventas"></ventas>
+
+    		<hr>
+
+    		<h3>Enviados</h3>
+    		<ventas v-bind:datos="enviados"></ventas>
+
+    		<hr>
+
+    		<selector-numerico v-bind:valor="1" v-bind:minimo="0" v-bind:maximo="20"></selector-numerico>
+  
+  			<hr>
+
+  			
+
+  
+		  </div>
+
+
+	</div>
+</div>

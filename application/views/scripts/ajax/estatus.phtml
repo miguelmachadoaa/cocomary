@@ -1,0 +1,21 @@
+<?php
+$id=$this->id;
+$modelo=$this->modelo;
+$estatus=$this->estatus;
+ ?>
+
+
+
+                    <?php if ($estatus){ ?>
+
+                     <button type="button"  onclick="estatus(<?php echo $id; ?>, '<?php echo $modelo; ?>', '0' )"  class="btn btn-default " title="Desactivar"><span class="glyphicon  glyphicon-thumbs-up"></span> </button> 
+
+                    <?php }else{ ?>
+
+                    <button type="button" onclick="estatus(<?php echo $id; ?>, '<?php echo $modelo; ?>', '1')"  class="btn btn-default " title="Activar"><span class="glyphicon  glyphicon-thumbs-down"></span> </button>
+
+                          
+
+                          
+
+                    <?php } ?>

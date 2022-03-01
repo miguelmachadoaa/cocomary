@@ -1,0 +1,74 @@
+<!-- banner -->
+   
+    <div class="banner10" id="home1" style="background:url(<?php echo '/'.$this->pagina['imagen']; ?>) no-repeat 0px 0px;">
+        <div class="container">
+            <h2><?php echo $this->pagina['titulo']; ?></h2>
+        </div>
+    </div>
+<!-- //banner -->
+
+<!-- breadcrumbs -->
+    <div class="breadcrumb_dress">
+        <div class="container">
+            <ul>
+                <li><a href="<?php  echo $this->baseUrl('/'); ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Inicio</a> <i>/</i></li>
+                
+                <li>Servicios</li>
+            </ul>
+        </div>
+    </div>
+<!-- //breadcrumbs -->
+
+<!-- about -->
+    <div class="about">
+        <div class="container"> 
+            <?php   $i=0; ?>
+            <?php foreach ($this->servicios as $serv): ?>
+              
+                <?php if ($i==0  ){ ?>
+
+
+                  <div class="w3ls_about_grids">
+                <div class="col-md-6 w3ls_about_grid_left">
+                <h1>  <?php echo $serv->titulo; ?>  </h1>
+                    <p><?php echo $serv->descripcion; ?></p>
+                </div>
+                <div class="col-md-6 w3ls_about_grid_right">
+                    <img src="<?php echo $this->baseUrl($serv->imagen); ?>" alt=" " class="img-responsive" />
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <hr>  
+
+
+
+                  <?php   $i=1; ?>
+                <?php }else{ ?>
+
+
+                  <div class="w3ls_about_grids">
+                
+                <div class="col-md-6 w3ls_about_grid_right">
+                    <img src="<?php echo $this->baseUrl($serv->imagen); ?>" alt=" " class="img-responsive" />
+                </div>
+                <div class="col-md-6 w3ls_about_grid_left">
+                <h1>  <?php echo $serv->titulo; ?>  </h1>
+                    <p><?php echo $serv->descripcion; ?></p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <hr>  
+
+
+
+                  <?php   $i=0; ?>
+
+                <?php } ?>
+
+              
+            <?php endforeach ?>
+
+            
+        </div>
+    </div>
+<!-- //about -->

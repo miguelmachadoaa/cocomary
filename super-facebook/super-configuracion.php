@@ -1,0 +1,10 @@
+<?php
+
+/* PONES AQUÍ TUS VALORES Y TODO ESTÁ PERFECTO */
+
+$APP_ID='153625785193462';
+$APP_SECRET='da69b36f1997c8951358af093056f182';
+//No lo cambies si no sabes lo que es
+$GRAPH_VERSION='v2.8';
+
+?>

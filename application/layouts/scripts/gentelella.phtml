@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <base href="<?php echo $this->baseUrl(); ?>">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->baseUrl('/assets/img/favicon.ico'); ?>">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $this->baseUrl('/'); ?>favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $this->baseUrl('/'); ?>favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="<?php echo $this->baseUrl('/'); ?>favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $this->baseUrl('/'); ?>favicon/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+        <title><?php echo $this->identidad['titulo']; ?></title>
+
+
+               <link href="<?php echo $this->baseUrl('/assets/css/datepicker.css'); ?>" rel="stylesheet">
+             <link href="<?php echo $this->baseUrl('/assets/plantilla/vendors/bootstrap/dist/css/bootstrap.min.css'); ?>" rel="stylesheet">
+             <link href="<?php echo $this->baseUrl('/assets/plantilla/vendors/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
+
+             <link href="<?php echo $this->baseUrl('/assets/plantilla/vendors/nprogress/nprogress.css'); ?>" rel="stylesheet">
+             <link href="<?php echo $this->baseUrl('/assets/css/uploadfile.min.css'); ?>" rel="stylesheet">
+
+             <link href="<?php echo $this->baseUrl('/assets/plantilla/build/css/custom.min.css'); ?>" rel="stylesheet">
+
+
+
+        <link href="<?php echo $this->baseUrl('/assets/css/style-admin.css'); ?>" rel="stylesheet">
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         </head>
+
+         <?php $auth = Zend_Auth::getInstance(); ?>
+        <?php if ($auth->hasIdentity()): ?>
+    <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="<?php echo $this->baseUrl('/'); ?>" class="site_title"> <span><?php echo $this->identidad['titulo']; ?></span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile">
+              <div class="profile_pic">
+                <img src="<?php echo $this->baseUrl($this->identidad['logo']); ?>" alt="<?php echo $auth->getIdentity()->username; ?>" class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bienvenido,</span>
+                <h2><?php echo $auth->getIdentity()->username; ?></h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                    
+                    <li><a href="<?php echo $this->baseUrl('administrador'); ?>">Dashboard</a></li>
+                    
+                    <li><a><i class="fa fa-home"></i> Solicitudes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                     <!-- <li><a href="<?php echo $this->baseUrl('/validador'); ?>">Validacion</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/auditoria'); ?>">Auditoria</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/presupuesto'); ?>">Presupuestos</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/mueble'); ?>">Muebles</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/inmueble'); ?>">Inmuebles</a></li>-->
+                      <li><a href="<?php echo $this->baseUrl('/contacto/list'); ?>">Contactos</a></li>
+                      
+                    </ul>
+                  </li>
+
+
+                  <li><a><i class="fa fa-home"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                     <!-- <li><a href="<?php echo $this->baseUrl('/validador'); ?>">Validacion</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/auditoria'); ?>">Auditoria</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/presupuesto'); ?>">Presupuestos</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/mueble'); ?>">Muebles</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/inmueble'); ?>">Inmuebles</a></li>-->
+                      <li><a href="<?php echo $this->baseUrl('/pedidos/recibidos'); ?>">Recibidos</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/pedidos/pagados'); ?>">Pagado</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/pedidos/entregados'); ?>">Entregado</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/pedidos/cancelados'); ?>">Cancelado</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/pedidos/enviados'); ?>">Enviado</a></li>
+                      <li><a href="<?php echo $this->baseUrl('/pedidos'); ?>">Todos</a></li>
+                      
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-home"></i> CMS <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                    <li><a href="<?php echo $this->baseUrl('/sliders'); ?>"><i class="fa fa-exchange" aria-hidden="true"></i> Sliders</a></li>
+                    <li><a href="<?php echo $this->baseUrl('/noticia'); ?>"><i class="fa fa-users "></i> Noticias</a></li>
+
+                  
+                    <li><a href="<?php echo $this->baseUrl('/pagina'); ?>"><i class="fa fa-file" aria-hidden="true"></i> Paginas</a></li>
+
+                    <li><a href="<?php echo $this->baseUrl('/portafolio/list'); ?>"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Categorias</a></li>
+
+
+                    <li><a href="<?php echo $this->baseUrl('/productos'); ?>"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Productos</a></li>
+                    
+                    <li><a href="<?php echo $this->baseUrl('clientes'); ?>"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Clientes</a></li>
+
+                    <li><a href="<?php echo $this->baseUrl('pedidos'); ?>"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Pedidos</a></li>
+
+                    <li><a href="<?php echo $this->baseUrl('/servicios/list'); ?>"><i class="fa fa-home" aria-hidden="true"></i></i></i> Servicios</a></li>
+
+              
+
+                  <!--
+
+                   
+                    <li><a href="<?php echo $this->baseUrl('/cocinas/list'); ?>"><i class="fa fa-home" aria-hidden="true"></i> Cocinas</a></li>
+                    <li><a href="<?php echo $this->baseUrl('/closets/list'); ?>"><i class="fa fa-home" aria-hidden="true"></i> Closets</a></li>
+                    <li><a href="<?php echo $this->baseUrl('/topes/list'); ?>"><i class="fa fa-home" aria-hidden="true"></i></i> Topes</a></li>
+                    <li><a href="<?php echo $this->baseUrl('/banos/list'); ?>"><i class="fa fa-bath" aria-hidden="true"></i></i> Baños</a></li>
+                    <li><a href="<?php echo $this->baseUrl('/dormitorios/list'); ?>"><i class="fa fa-bed" aria-hidden="true"></i></i> Dormitorios</a></li>
+                    <li><a href="<?php echo $this->baseUrl('/mobiliario/list'); ?>"><i class="fa fa-home" aria-hidden="true"></i></i></i> Mobiliario</a></li>-->
+                      
+                    </ul>
+                  </li>
+                    <li><a href="<?php echo $this->baseUrl('/users'); ?>"><i class="fa fa-user "></i>Usuarios</a></li>
+
+                    <li><a href="<?php echo $this->baseUrl('/identidad'); ?>"><i class="fa fa-user "></i>Identidad</a></li>
+                </ul>
+              </div>
+             
+
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <!--<img src="images/img.jpg" alt="">--><?php echo $auth->getIdentity()->username; ?>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                  
+                    <li><a href="<?php echo $this->baseUrl('/auth/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Cerrar Session</a></li>
+                  </ul>
+                </li>
+
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+<?php endif; ?> 
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+
+              <?php echo $this->layout()->content; ?>
+
+     
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Diseñado y Desarrollado por <a href="http://www.maymi.com.ve">Inversiones Maymi</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    
+        <script src="<?php echo $this->baseUrl('/assets/plantilla/vendors/jquery/dist/jquery.min.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/plantilla/vendors/bootstrap/dist/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/plantilla/vendors/fastclick/lib/fastclick.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/plantilla/vendors/nprogress/nprogress.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/plantilla/build/js/custom.min.js'); ?>"></script>
+
+        <script src="<?php echo $this->baseUrl('/assets/js/bootstrap-datepicker.js'); ?>"></script>
+
+        <script src="<?php echo $this->baseUrl('/assets/js/nicEdit.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/js/jquery.uploadfile.min.js'); ?>"></script>
+    
+
+        <script src="<?php echo $this->baseUrl('/assets/js/dataTables/jquery.dataTables.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/js/dataTables/dataTables.bootstrap.js'); ?>"></script>
+
+
+
+
+        <script src="<?php echo $this->baseUrl('/assets/js/custom-admin.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/js/upload.js'); ?>"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
+
+        <script src="<?php echo $this->baseUrl('/assets/js/vueapp.js'); ?>"></script>
+
+          <script type="text/javascript">
+    bkLib.onDomLoaded(function() { nicEditors.allTextAreas({fullPanel : true}) });
+</script>
+
+
+       
+    </body>
+	
+	
+</html>

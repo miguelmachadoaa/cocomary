@@ -1,0 +1,2 @@
+Sample 1@@@https://mydomain2.com/test/phpseo-proxy.php?password=YOURPASSWORDHERE
+Sample 2@@@https://mydomain3.com/phpseo-proxy.php?password=YOURPASSWORDHERE

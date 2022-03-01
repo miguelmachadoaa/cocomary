@@ -1,0 +1,8 @@
+<div class="titleblock">ÚLTIMAS NOTICIAS</div>
+<div class="contentblock">
+	<ul>
+		<li><a target="_blank" href="https://www.facebook.com/groups/323627338348916/permalink/682252072486439/">Vota la próxima herramienta a implementar en PHPSEO.</a></li>
+		<li><a target="_blank" href="https://www.facebook.com/groups/323627338348916/">Soporte en el grupo de Facebook de PHPSEO.</a></li>
+		<li><a target="_blank" href="https://twitter.com/netgrows">Sigue las actualizaciones de PHPSEO en Twitter.</a></li>	
+	</ul>
+</div>

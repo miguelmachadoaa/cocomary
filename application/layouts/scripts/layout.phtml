@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+    <html lang="es">
+      
+      <head>
+
+        <meta charset="utf-8"/>
+        <link rel="canonical" href="<?php echo $this->meta['url']; ?>" />
+        <meta property="og:title" content="<?php echo $this->meta['titulo']; ?>  | Tienda Cocomary">
+        <meta property="og:type" content="" />
+        <meta property="og:image" content="<?php echo $this->meta['imagen']; ?>" />
+        <meta property="og:site_name" content="Tienda Cocomary" />
+        <meta property="og:url" content="<?php echo $this->meta['url']; ?>" />
+        <meta property="og:description" content="<?php echo $this->meta['descripcion']; ?>">
+        <meta name="description" content="<?php echo $this->meta['descripcion']; ?>"/>
+        <meta property="og:revisit-after" content="3 days">
+
+        <?php 
+          if (isset($this->meta['robots'])) {
+
+            ?>
+
+            <meta name="robots" content="<?php echo $this->meta['robots'] ?>">
+        <?php
+           
+          }else{
+
+        ?>
+
+            <meta name="robots" content="index, follow">
+        <?php
+          }
+         ?>
+
+        
+        <meta name="keywords" content="<?php  echo $this->meta['key']; ?>" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <meta name="google-site-verification" content="zpXaBv2zwKDVelemubFfILhztFKtnpUMKK9tfrxxJRw">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+      
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@tiendacocomary">
+        <meta name="twitter:description" content="<?php echo $this->meta['descripcion']; ?>">
+        <meta name="twitter:title" content="<?php echo $this->meta['titulo']; ?>">
+        <meta name="twitter:image" content="<?php echo $this->meta['imagen']; ?>">
+
+
+        <title><?php echo $this->meta['titulo']; ?></title>
+
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->baseUrl('/'); ?>favicon/favicon.ico">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $this->baseUrl('/'); ?>favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $this->baseUrl('/'); ?>favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $this->baseUrl('/'); ?>favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $this->baseUrl('/'); ?>favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $this->baseUrl('/'); ?>favicon/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+
+        <script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+            <!--fonts-->
+
+            <!--fonts-->
+      <!-- //for bootstrap working -->
+      <link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
+      <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+      <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+      <div class="elfsight-app-12d248de-42fd-46d3-a362-0c3b4ae33fa6"></div>
+
+      <?php
+
+      $directorio = 'assets/diseno/css/';
+      $css = scandir($directorio); 
+
+      $directorio_js = 'assets/diseno/js/';
+      $js = scandir($directorio_js); 
+      ?>
+
+      <?php foreach ($css as $c ): ?>
+        <?php if ($c=='.' or $c=='..'){ ?>
+        <?php }else{ ?>
+            <link href="<?php echo $this->baseUrl('/assets/diseno/css/'.$c); ?>" rel="stylesheet" >
+        <?php } ?>
+      <?php endforeach ?>
+
+      <?php foreach ($js as $j ): ?>
+        <?php if ($j=='.' or $j=='..'){ ?>
+        <?php }else{ ?>
+          <script  src="<?php echo $this->baseUrl('/assets/diseno/js/'.$j); ?>"></script>
+        <?php } ?>
+      <?php endforeach ?>
+
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-177799504-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-177799504-1');
+      </script>
+
+  </head>
+        <!--body-->
+<body>
+
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.10&appId=128659334452409";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script src="https://apis.google.com/js/platform.js"  defer>
+      {lang: 'es-419'}
+    </script>
+
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '445216569923829');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=445216569923829&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+
+
+    <!--header-->
+        <div class="header">
+            <div class="header-top">
+                <div class="container">
+                     <div class="top-left">
+                        <a href="#"> Escribenos  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> <?php echo $this->identidad['telefono'] ?></a>
+                    </div>
+
+                    <div class="top-right">
+                        <p style="color: #fff; font-weight: 600;">Envios Gratis a Toda Colombia  para compras mayores de 50.000 Pesos.</p>
+                    </div>
+                    
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="heder-bottom">
+                <div class="container">
+                    <div class="logo-nav">
+                        <div class="logo-nav-left">
+                            <h1><a href="<?php   echo $this->baseUrl('/'); ?>"><img style="width: 3em;" src="<?php echo $this->baseUrl($this->identidad['logo']) ?>"  alt="Tienda Cocomary" title="tiendacocomary"></a></h1>
+                        </div>
+                        <div class="logo-nav-left1" style='float: right;'>
+                            <nav class="navbar navbar-default">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header nav_2">
+                                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div> 
+                            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                                <ul class="nav navbar-nav">
+                                    
+
+
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Producos <span class="caret"></span></a>
+                                      <ul class="dropdown-menu">
+
+                                        <?php foreach ($this->categorias_menu as $cat_menu): ?>
+                                            <li><a href="<?php echo $this->baseUrl('/productos/categoria/id/'.$cat_menu->id); ?>"><?php echo $cat_menu->titulo; ?></a></li>
+                                        <?php endforeach ?>
+                                        
+                                      </ul>
+                                    </li>
+
+                                  
+                                    <li><a href="<?php   echo $this->baseUrl('/productos/categoria/id/1596763595'); ?>">Promociones</a></li>
+
+                                    <li><a href="<?php   echo $this->baseUrl('/blog'); ?>">Blog</a></li>
+                                    <li><a href="<?php   echo $this->baseUrl('/nosotros'); ?>">Nosotros</a></li>
+                                    <li><a href="<?php   echo $this->baseUrl('/contacto'); ?>">Contacto</a></li>
+                                </ul>
+                            </div>
+                            </nav>
+                        </div>
+                        
+                       
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <?php echo $this->layout()->content; ?>
+
+
+<!---footer-->
+                    <div class="footer-w3l">
+                        <div class="container">
+                            <div class="footer-grids">
+                                <div class="col-md-3 footer-grid">
+                                    <h4>Nosotros </h4>
+                                    <p>Cocomary es una empresa familiar dedicada a la distribución de productos de bellaza naturales y organicos a base de coco.</p>
+                                    <div class="social-icon">
+                                        <a href="#"><i class="icon"></i></a>
+                                        <a href="#"><i class="icon1"></i></a>
+                                        <a href="#"><i class="icon2"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 footer-grid">
+                                    <h4>Enlaces</h4>
+                                    <ul>
+                                        <li><a href="#">Inicio</a></li>
+                                        <li><a href="#">Nosotros</a></li>
+                                        <li><a href="#">Contacto</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 footer-grid foot">
+                                    <h4>Contacto</h4>
+                                    <ul>
+                                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="#"><?php echo $this->identidad['direccion']; ?></a></li>
+                                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#"><?php echo $this->identidad['telefono']; ?></a></li>
+                                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:<?php echo $this->identidad['email']; ?>"> <?php echo $this->identidad['email']; ?></a></li>
+                                        
+                                    </ul>
+                                </div>
+                            <div class="clearfix"> </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!---footer--->
+                    <!--copy-->
+                    <div class="copy-section">
+                        <div class="container">
+                            <div class="copy-left">
+                                <p>&copy;Cocomary  Diseñado por <a href="http://maymi.com.ve">Inversiones Maymi</a></p>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                <!--copy-->
+                
+                
+            </div>
+            
+            
+           
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ComprarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ingrese Sus Datos</h4>
+      </div>
+      <div class="modal-body">
+
+      	<div class="row">
+
+      		<div class="col-sm-6">
+      			
+      			<img id="imgpro" src="#" alt="" style="width: 100%">
+
+      			<h3 style="text-align: center;" id="nombrepro"></h3>
+
+      			<h3 style="text-align: center;" id="preciopro"></h3>
+
+      		</div>
+      		
+      		<div class="col-sm-6">
+
+      			<div class="form-group">
+				    <input type="hidden" class="form-control" name="producto_compra" id="producto_compra"  value="">
+				  </div>
+
+      			<div class="form-group">
+				    <label for="exampleInputEmail1">Nombre</label>
+				    <input type="email" class="form-control" name="nombre_compra" id="nombre_compra" placeholder="Ingrese Su Nombre">
+				  </div>
+
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Telefono</label>
+				    <input type="text" class="form-control" name="telefono_compra" id="telefono_compra" placeholder="Ingrese Su Telefono">
+				  </div>
+
+
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Dirección</label>
+				    <input type="text" class="form-control" name="direccion_compra" id="direccion_compra" placeholder="Ingrese Su Dirección">
+				  </div>
+
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Barrio </label>
+				    <input type="text" class="form-control" name="barrio_compra" id="barrio_compra" placeholder="Ingrese Su Barrio">
+				  </div>
+
+
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Ciudad </label>
+				    <input type="text" class="form-control" name="ciudad_compra" id="ciudad_compra" placeholder="Ingrese Su Ciudad">
+				  </div>
+
+				  <h3 style="margin-bottom: 1em; ">Uno de nuestros asesores se comunicara con usted para confirmar la entrega de su pedido. </h3>
+
+
+				  <div class="respuestacompra"></div>
+
+				  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        			<button type="button"  class="btn btn-primary enviarCorreoCompra">Comprar</button>
+
+
+
+      		</div>
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script async type="text/javascript" src="/assets/js/upload.js"></script>
+
+
+
+
+            </body>
+        <!--body-->
+    </html>

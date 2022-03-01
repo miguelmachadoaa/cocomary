@@ -1,0 +1,9 @@
+<?php foreach ($this->fotos as $foto ): ?>
+
+	<div class='col-sm-2'>
+
+			<img title='Click para Eliminar' class='img-rounded' onclick='borrarimagen("<?php 	echo $foto->id ?>", "<?php 	echo $foto->id_solicitud ?>")' src='<?php 	echo $this->baseUrl('/assets/images/').$foto->foto; ?>' width='100px' >
+
+	</div>
+	
+<?php endforeach ?>

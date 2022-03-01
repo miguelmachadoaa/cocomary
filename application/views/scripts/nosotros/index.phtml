@@ -1,0 +1,120 @@
+ <!--banner-->
+        <div class="" style="padding-bottom: 2em;color: #909090;padding-top: 1em; text-align: center;">
+            <div class="container">
+                <h3>
+                  <a style="color: #909090; font-size: 0.75em;" href="<?php echo $this->baseUrl('/'); ?>">Inicio</a> / 
+                  <a style="color: #ff0398; font-size: 0.75em;" href="#">Nosotros</a> </h3>
+            </div>
+        </div>
+    <!--banner-->
+
+
+
+
+
+
+<div class="latest-w3">
+                <div class="container">
+                    
+                    <div class="latest-grids">
+                        <div class="col-sm-6 ">
+                            <div class="latest-top">
+                                <img  src="<?php echo $this->baseUrl($this->pagina['imagen']); ?>" class="img-responsive"  alt="">                 
+                            </div>
+                        </div>
+                        <div class="col-sm-6 ">
+                            <div class="latest-top">
+                                <h3 class="tittle1"> <?php echo $this->pagina['titulo']; ?> </h3>
+                                <?php echo $this->pagina['contenido']; ?>
+                            </div>
+                        </div>
+                       
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+            </div>
+
+ <!--Products-->
+            <div class="latest-w3">
+                <div class="container">
+                    <h3 class="tittle1">Nuestro Blog</h3>
+                    <div class="latest-grids">
+
+                        <?php foreach ($this->noticias as $noticia): ?>
+                            <div class="col-sm-4 latest-grid">
+                            <div class="latest-top">
+                                <a href="<?php echo $this->baseUrl('blog/ver/id/'.$noticia->id); ?>"><img  src="<?php echo $this->baseUrl($noticia->foto); ?>" class="img-responsive"  alt="<?php echo $noticia->titulo; ?>">
+                                <div class="latest-text"></a>
+                                    <h4><?php echo $noticia->titulo; ?></h4>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <?php endforeach ?>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+            </div>
+                
+            <!--new-arrivals-->
+
+
+
+              <!--Products-->
+                <div class="product-agile">
+                    <div class="container">
+                        <h3 class="tittle1"> Mas Vendidos</h3>
+                        <div class="slider">
+                            <div class="callbacks_container">
+                                <ul class="rslides" id="slider">
+                                    <li>     
+                                        <div class="caption">
+<?php   $ObjFotos = new Application_Model_DbTable_Fotos(); ?>
+                                            <?php foreach ($this->limpieza as $limp): ?>
+                                <?php $fotos=$ObjFotos->fetchRow('id_solicitud="'.$limp->id.'"'); ?>
+
+                                                    <div class="col-sm-3 cap-left simpleCart_shelfItem">
+                                                <div class="grid-arr" style="height: 31em;">
+                                                    <div  class="grid-arrival">
+                                                        <figure>        
+                                                            <a href="<?php echo $this->baseUrl('productos/ver/id/'.$limp->id); ?>">
+                                                                <div class="grid-img">
+                                                                    <img  src="<?php echo $this->baseUrl('assets/images/'.$fotos['foto']); ?>" class="img-responsive" alt="">
+                                                                </div>
+                                                                            
+                                                            </a>        
+                                                        </figure>   
+                                                    </div>
+                                                    <div class="block">
+                                                        <div class="starbox small ghosting"> </div>
+                                                    </div>
+                                                    <div class="women">
+                                                        <h6><a href="<?php echo $this->baseUrl('productos/ver/id/'.$limp->id); ?>"><?php echo  $limp->nombre ?></a></h6>
+                                                        <span class="size"><?php echo  $limp->unidad ?> </span>
+                                                        
+                                                        <a href="<?php echo $this->baseUrl('productos/ver/id/'.$limp->id); ?>" data-text="Add To Cart" class="my-cart-b item_add">Ver</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                                
+                                            <?php endforeach ?>
+
+
+                                            
+                                            
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--Products-->

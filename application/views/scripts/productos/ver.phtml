@@ -1,0 +1,183 @@
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});
+</script>
+        <!--banner-->
+        <div class="banner1" style="background:url(<?php echo '/'.$this->categoria['imagen']; ?>) no-repeat 0px 0px;     background-size: cover;">
+            <div class="container">
+                <!--h3><a href="<?php echo $this->baseUrl('/'); ?>">Inicio</a> / <a href="<?php echo $this->baseUrl('/productos/categoria/id/'.$this->categoria['id']); ?>"><?php echo  $this->categoria['titulo'] ?></a> / <span><?php   echo $this->detalles['nombre']; ?></span></h3-->
+            </div>
+        </div>
+    <!--banner-->
+        <!--content-->
+<!--content-->
+        <div class="content">
+            <!--single-->
+            <div class="single-wl3">
+                <div class="container">
+                    <div class="single-grids">
+                        <div class="col-md-12 single-grid">
+                            <div clas="single-top">
+                                <div class="single-left">
+                                    <div class="flexslider">
+                                        <ul class="slides">
+                                            
+				                        <?php foreach ($this->fotos as $foto): ?>
+				                                <li data-thumb="<?php   echo $this->baseUrl('/assets/images/'.$foto->foto) ?>">
+				                                    <div class="thumb-image"> <img src="<?php   echo $this->baseUrl('/assets/images/'.$foto->foto) ?>" data-imagezoom="true" class="img-responsive"> </div>
+				                                </li>
+				                        <?php endforeach ?>
+
+                                            
+                                         </ul>
+                                    </div>
+                                </div>
+                            <div class="single-right simpleCart_shelfItem">
+                                <h1><?php   echo $this->detalles['nombre']; ?></h1>
+                                <h3 style="margin-bottom: 1em;     font-weight: 700;    color: #d10c15;"><span class=""><?php echo $this->detalles['oferta'] ?> COP</span></h3>
+
+                                <p><?php   echo $this->detalles['descripcion_corta']; ?>.</p>
+                                
+                                <div class="women">
+                                    <span class="size" style="color: #5da734">Producto en Stock, Entrega en 24 Horas</span>
+
+                                    <button  style="width: 100%;height: 3em;font-size: 2em;background: #ce44a4;"
+                                    data-img="<?php   echo $this->baseUrl('/assets/images/'.$foto->foto) ?>"
+                                    data-producto="<?php   echo $this->detalles['nombre']; ?>"
+                                    data-precio="<?php echo $this->detalles['oferta'] ?>"
+                                    data-url="<?php echo $this->baseUrl('/productos/gracias/id/'.$this->detalles['id'])?>"
+                                     class="btn btn-primary btnComprar">Comprar </button>
+
+                                     <span ><i class="fa fa-tag"></i> Mejor precio online</span>
+                                     <span ><i class="fa fa-refresh"></i> Satisfacción garantizada, Devolucion sin costo</span>
+
+
+                                </div>
+                                <br>    
+
+                                                              <div id="botones-para-compartir">
+  <div class="col-sm-4" style="padding: 0;">  
+      <div class="fb-share-button" data-href="<?php echo $this->meta['url']; ?>" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" src="sdkpreparse">Compartir</a></div>
+  </div>
+
+
+  <div class="col-sm-4" style="padding: 0;">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="bysatlantico" data-size="small">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+  <div class="col-sm-4">
+
+    <!-- Place this tag where you want the share button to render. -->
+    <div class="g-plus" data-action="share"></div>
+  </div>
+
+  </div>
+   </div>
+
+
+  
+
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12">
+
+
+
+                        	 <!-- Nav tabs -->
+						  <ul class="nav nav-tabs" role="tablist">
+						    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Descripción</a></li>
+						    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Envio y Devoluciones</a></li>
+						    
+						  </ul>
+
+						  <!-- Tab panes -->
+						  <div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="home">
+
+						     <p><?php   echo $this->detalles['descripcion']; ?>.</p>
+
+						 	</div>
+						    <div role="tabpanel" class="tab-pane" id="profile">
+						    	
+						    	<p><b>Disponibilidad del producto:</b> La mayoría de nuestros productos están en stock en nuestros almacenes, se indica en la misma página como "Producto en Stock. Entrega en 24h." Si no disponemos del producto en nuestro almacén, te informaremos del tiempo de entrega estimado. Este dato lo mantenemos actualizado y trabajamos para acortarlo y que recibas tu pedido cuanto antes. </p>
+
+								<p><b>Forma de pago:</b> Puedes pagar tu compra al recibir el producto si estas en Bogota o Soacha, para el resto del pais tarjeta o transferencia bancaria. Si eliges este última opción, recibirás un email con nuestro datos bancarios para poder hacer el pago. Cuando tenemos constancia del pago, nosotros nos encargaremos de modificar el estado de tu pedido y empezar a preparar el envío de tu compra.</p>
+
+								<p><b>Gastos de envío:</b> Los envios en Bogota y Soacha son gratuitos para la mayoria de las compras, los envios Nacionales se hacen por Interrapidisimo por Contraentrega, El costo del Envio se le informa al cliente antes de hacer el envio. </p>
+
+								<p><b>Devoluciones:</b> Te garantizamos satisfacción al 100% de tu compra, tienes hasta 7 días para devolverla. Podrás solicitarlo en el momento que requiera.</p>
+
+								
+
+
+						    </div>
+						  </div>
+						                        	
+                        	 <div class="">
+                                   
+                                </div>
+                        </div>	
+                        
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!--Product Description-->
+                        
+                         
+                    <!--Product Description-->
+                </div>
+            </div>
+            <!--single-->
+            <div class="new-arrivals-w3agile">
+                    <div class="container">
+                        <h3 class="tittle1">Relacionados</h3>
+                        <div class="arrivals-grids">
+
+
+                                <?php $ObjFotos = new Application_Model_DbTable_Fotos(); ?>
+
+                                <?php foreach ($this->relacionados as $relacionado): ?>
+
+                                <?php $fotos_rela=$ObjFotos->fetchRow('id_solicitud="'.$relacionado->id.'"'); ?>
+
+                            <div class="col-md-3 arrival-grid simpleCart_shelfItem">
+                                <div class="grid-arr" style="height: 30em;">
+                                    <div  class="grid-arrival">
+                                        <figure>        
+                                            <a href="<?php echo $this->baseUrl('productos/ver/id/'.$relacionado->id); ?>">
+                                                <div class="grid-img">
+                                                    <img  src="<?php echo $this->baseUrl('assets/images/'.$fotos_rela['foto']); ?>" class="img-responsive" alt="<?php echo  $relacionado->nombre; ?>">
+                                                </div>
+                                                       
+                                            </a>        
+                                        </figure>   
+                                    </div>
+                                    
+                                    
+                                    <div class="women">
+                                        <h6><a href="<?php echo $this->baseUrl('productos/ver/id/'.$relacionado->id); ?>"><?php echo  $relacionado->nombre; ?></a></h6>
+                                        <span class="size"><?php echo  $relacionado->unidad; ?> </span>
+                                        <p ><em class="item_price"><?php echo $relacionado->oferta ?></em></p>
+                                        <a style="color: #fff;background-color: #ff0398;border-color: #ff0398; width: 100%;" href="<?php echo $this->baseUrl('productos/ver/id/'.$relacionado->id); ?>" data-text="Agregar Al Carrito" class="btn btn-primary">Comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                                <?php endforeach ?>
+
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            <!--new-arrivals-->
+        </div>
+        <!--content-->

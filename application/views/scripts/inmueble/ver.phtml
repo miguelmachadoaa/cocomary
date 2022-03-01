@@ -1,0 +1,512 @@
+<div class="container">
+
+  <ol class="breadcrumb">
+      <li><a href="<?php echo $this->baseUrl('/'); ?>">Inicio</a></li>
+      <li><a href="<?php echo $this->baseUrl('/inmueble'); ?>">Inmuebles</a></li>
+      <li class="active">Ver Detalle</li>
+  </ol>
+    
+   <div class="row">
+
+   <h1 class="page-header">Detalles de la Solicitud de Presupuestos</h1>
+
+   <br> 
+
+   <table class="table table-striped table-responsive"> 
+      <tr>  
+      <th > Campo </th>
+      <th> Detalle </th>
+
+      </tr>
+
+      <tr>  
+        <th> Id </th>
+        <td> <?php echo $this->presupuesto['id']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Nombres y Apellidos </th>
+        <td> <?php echo $this->presupuesto['nombres'].' '.$this->presupuesto['apellidos']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Cedula </th>
+        <td> <?php echo $this->presupuesto['cedula']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Telefono Local  </th>
+        <td> <?php echo $this->presupuesto['tlf']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Telefono Movil </th>
+        <td> <?php echo $this->presupuesto['tlf_movil']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Email </th>
+        <td> <?php echo $this->presupuesto['email']; ?>  </td>
+      </tr>
+      
+
+      <tr>  
+        <th> Estado </th>
+        <td> <?php echo $this->presupuesto['estado']; ?>  </td>
+      </tr>
+        
+      <tr>  
+        <th> Ciudad </th>
+        <td> <?php echo $this->presupuesto['ciudad']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Direccion  </th>
+        <td> <?php echo $this->presupuesto['direccion']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Fecha  </th>
+        <td> <?php echo $this->presupuesto['fecha']; ?>  </td>
+      </tr>
+
+
+    </table>
+
+
+
+   </div>
+   
+    
+	
+	<div class="row">
+
+   <h2 class="page-header">Detalles del Inmueble</h2>
+
+   <br> 
+
+   <table class="table table-striped table-responsive"> 
+      <tr>  
+      <th > Campo </th>
+      <th> Detalle </th>
+
+      </tr>
+
+      <tr>  
+        <th> Nombre del Inmueble </th>
+        <td> <?php echo $this->presupuesto['nombre_inmueble']; ?>  </td>
+      </tr>
+
+   
+
+      <tr>  
+        <th> Antiguedad Años </th>
+        <td> <?php echo $this->presupuesto['edad_inmueble']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Area Construccion </th>
+        <td> <?php echo $this->presupuesto['construccion_inmueble']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Tenencia terreno </th>
+        <td> <?php echo $this->presupuesto['tenencia_inmueble']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Usos </th>
+        <td> <?php echo $this->presupuesto['uso_bien']; ?>  </td>
+      </tr>
+      
+
+      <tr>  
+        <th> Topografia </th>
+        <td> <?php echo $this->presupuesto['topografia']; ?>  </td>
+      </tr>
+        
+      
+
+      <tr>  
+        <th> Mejoras al Inmueble </th>
+        <td> <?php echo $this->presupuesto['mejoras']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Estado de Conservacion  </th>
+        <td> <?php echo $this->presupuesto['conservacion']; ?>  </td>
+      </tr>
+
+      <tr>  
+        <th> Condiciones Fisicas  </th>
+        <td> <?php echo $this->presupuesto['acabados']; ?>  </td>
+      </tr>
+
+       <tr>  
+        <th> Calidad de los Acabados  </th>
+        <td> <?php echo $this->presupuesto['condiciones_fisicas']; ?>  </td>
+      </tr>
+
+       <tr>  
+        <th> Numero de pisos  </th>
+        <td> <?php echo $this->presupuesto['pisos']; ?>  </td>
+      </tr>
+
+       <tr>  
+        <th> Numero de habitaciones  </th>
+        <td> <?php echo $this->presupuesto['habitaciones']; ?>  </td>
+      </tr>
+
+       <tr>  
+        <th> Numero de Baños  </th>
+        <td> <?php echo $this->presupuesto['banos']; ?>  </td>
+      </tr>
+
+       <tr>  
+        <th> Numero de Puestos Estacionaiento   </th>
+        <td> <?php echo $this->presupuesto['puestos']; ?>  </td>
+      </tr>
+
+
+    </table>
+
+   </div>
+
+   <div class="row"> 
+
+     <h2 class="page-header">Detalles del Inmueble</h2>
+
+      <ul>  
+
+        <?php   if (!is_null($this->presupuesto['sala']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['sala']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['rodapie']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['rodapie']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['cable']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['cable']."</li>";
+        } ?>
+
+      
+
+        <?php   if (!is_null($this->presupuesto['piso_de_granito']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['piso_de_granito']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['kictchenette']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['kictchenette']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['EstacTechado']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['EstacTechado']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['BanodeServicio']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['BanodeServicio']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['SemiAmoblado']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['SemiAmoblado']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['Porcelanato']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Porcelanato']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['RodapieMadera']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['RodapieMadera']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['CavaCuarto']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['CavaCuarto']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['RejaSeguridad']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['RejaSeguridad']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['Parquet']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Parquet']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['ParedesCeramica']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['ParedesCeramica']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['Alfombra']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Alfombra']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['VentanasRomanilla']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['VentanasRomanilla']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['GasDirecto']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['GasDirecto']."</li>";
+        } ?>
+
+
+
+        <?php   if (!is_null($this->presupuesto['HabDeServicio']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['HabDeServicio']."</li>";
+        } ?>
+        
+
+        <?php   if (!is_null($this->presupuesto['Lavadero']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Lavadero']."</li>";
+        } ?>
+        
+
+        <?php   if (!is_null($this->presupuesto['PuertaMadEntamb']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['PuertaMadEntamb']."</li>";
+        } ?>
+        
+
+        <?php   if (!is_null($this->presupuesto['TerrazaCubierta']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['TerrazaCubierta']."</li>";
+        } ?>
+        
+
+        <?php   if (!is_null($this->presupuesto['Paredesfrisoesponj']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Paredesfrisoesponj']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['Maletero']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Maletero']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['AscensordeCarga']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['AscensordeCarga']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['AguasServidas']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['AguasServidas']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['Paredesdefrisorustico']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Paredesdefrisorustico']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['TanquedeAgua']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['TanquedeAgua']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['Ventanafijaaluminio']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Ventanafijaaluminio']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['PisodeCeramica']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['PisodeCeramica']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['Ventanascorrederas']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Ventanascorrederas']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['EstructuraConcreto']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['EstructuraConcreto']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['Banera']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Banera']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['EstructuraMetalica']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['EstructuraMetalica']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['EstructuraenMamposteria']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['EstructuraenMamposteria']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['ParedesMachiembrado']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['ParedesMachiembrado']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['EstructuraenMadera']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['EstructuraenMadera']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['PinturaCaucho']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['PinturaCaucho']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['PuertadeAluminio']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['PuertadeAluminio']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['CieloRaso']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['CieloRaso']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['PuertaHierro']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['PuertaHierro']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['AireAcondicionado']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['AireAcondicionado']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['TerrazaDescubierta']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['TerrazaDescubierta']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['AguasBlancas']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['AguasBlancas']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['Vestier']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Vestier']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['LineaTelefonica']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['LineaTelefonica']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['Estudio']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Estudio']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['SistemascontraIncendios']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['SistemascontraIncendios']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['SaladeConferencias']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['SaladeConferencias']."</li>";
+        } ?>
+        
+        
+        <?php   if (!is_null($this->presupuesto['AcometidaElectrica']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['AcometidaElectrica']."</li>";
+        } ?>
+        
+      </ul>
+
+
+   </div>
+   
+
+
+
+  <div class="row"> 
+
+     <h2 class="page-header">Areas Comunes </h2>
+
+      <ul>  
+
+        <?php   if (!is_null($this->presupuesto['ParqueInfantil']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['ParqueInfantil']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['Gimnasio']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Gimnasio']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['Cancha']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Cancha']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['SaladeFiestas']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['SaladeFiestas']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['CallePrivada']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['CallePrivada']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['VigilanciaPrivada']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['VigilanciaPrivada']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['Jardines']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Jardines']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['areadeBBQ']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['areadeBBQ']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['EscalerasdeEmergencia']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['EscalerasdeEmergencia']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['Caminerias']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Caminerias']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['CastBombonasgas']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['CastBombonasgas']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['AscensorPrivado']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['AscensorPrivado']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['Piscina']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Piscina']."</li>";
+        } ?>
+
+        <?php   if (!is_null($this->presupuesto['Sauna']) ) {
+          echo "<li class='col-sm-4'>".$this->presupuesto['Sauna']."</li>";
+        } ?>
+
+        
+      </ul>
+
+
+   </div>
+
+   
+    <div class="row">
+
+   <h1 class="page-header">Fotos  del Bien</h1>
+
+   <br> 
+
+   <?php foreach ($this->fotos as $foto): ?>
+
+    <div class="col-sm-3" style="padding: 1em;">
+
+        <img class="img img-responsive" src="<?php echo $this->baseUrl('/assets/images/').$foto->foto; ?>">
+
+     </div>
+
+
+
+    <?php endforeach ?>
+</div> 
+
+
+
+
+</div>
+

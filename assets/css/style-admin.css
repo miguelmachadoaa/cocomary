@@ -1,0 +1,89 @@
+/*css btonos cuadrados */
+
+
+.btn-sq-lg {
+  width: 150px !important;
+  height: 150px !important;
+  margin: 1em;
+}
+
+.btn-sq {
+  width: 100px !important;
+  height: 100px !important;
+      margin-top: 0.5em;
+  /*font-size: 10px;*/
+}
+
+.btn-sq .glyphicon, .btn-sq-sm .glyphicon,.btn-sq-xs .glyphicon, .btn-sq-lg .glyphicon {
+  font-size: 5em;
+}
+
+ .btn-sq-sm .glyphicon {
+  font-size: 2em;
+}
+
+ .btn-sq-xs .glyphicon {
+  font-size: 1em;
+}
+
+
+.btn-sq-sm {
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 10px;
+}
+
+.btn-sq-xs {
+  width: 25px !important;
+  height: 25px !important;
+  padding:2px;
+}
+
+
+.btn-sq-lg .titulo{
+  font-size: 2em;
+  
+}
+
+.btn-sq-lg .total{
+  font-size: 1em;
+}
+
+.btn-sq .titulo{
+  font-size: 1em;
+  
+}
+
+.btn-sq .total{
+  font-size: 0.8em;
+}
+
+
+
+
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: normal;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.text-right{
+  float: right;
+}

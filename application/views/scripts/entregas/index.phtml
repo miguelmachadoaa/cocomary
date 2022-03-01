@@ -1,0 +1,139 @@
+<div class="container-fluid">
+    
+    
+
+    <?php if (count($this->messages) > 0): ?>
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <?php foreach ($this->messages as $message): ?>
+                <span><?php echo current($message); ?></span><br>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+    <div class="container">
+
+        <h1 class="page-header">
+    
+        Entregas del Dia 
+    
+        
+    
+    
+    </h1>
+    <div class="row">
+        <?php $i=0; ?>
+		
+        <?php foreach ($this->pedidos as $row): ?>
+
+            <?php $i++; ?>
+		
+		      <?php $partes=explode(' ', $row->nombre) ?>
+
+            <div class="alert alert-info col-sm-12 col-xs-12" >
+                <p><?php echo $i; ?></p>
+                <p ><a target="_blanck" href="https://wa.me/57<?php echo $row->tlf; ?>?text= Hola <?php echo $partes[0]; ?>, Te gustaria conocer nuestra nueva Promocion Renovacion, Consta de 5 Productos apra el cuidado de tu rostro, por solo 29900, Envio Gratis."><?php echo $row->tlf; ?></a></p>
+                <p ><?php echo $row->nombre; ?></p>
+                <p ><?php echo $row->direccion; ?></p>
+                <p><?php echo $row->total; ?></p>
+                <p class="hidden-xs"><?php echo $row->fecha; ?></p>
+                <p class="hidden-xs"><?php echo $row->descripcion_pedido; ?></p>
+
+                <a class="btn btn-success" target="_blanck" href="https://wa.me/57<?php echo $row->tlf; ?>?text= Hola <?php echo $partes[0]; ?>">Whatsapp</a>
+                <a class="btn btn-warning" href="tel:+57<?php echo $row->tlf; ?>">LLamar</a>
+               
+            </div>
+        <?php endforeach; ?>
+		
+    </div>
+    </div>
+    
+</div>
+
+<div id="approveModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Aprobar Miembro</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Seguro desea realizar esta acción?</p>
+                <p class="debug-url"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary approve">Aceptar</button>
+                <form id="formApprove" name="formApprove" method="POST" action="<?php echo $this->url(array('controller' => 'members', 'action' => 'approve')); ?>">
+                    <input type="hidden" id="mid" name="mid" value="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="rejectModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Rehazar Miembro</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Seguro desea realizar esta acción?</p>
+                <p class="debug-url"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger reject">Aceptar</button>
+                <form id="formReject" name="formReject" method="POST" action="<?php echo $this->url(array('controller' => 'members', 'action' => 'reject')); ?>">
+                    <input type="hidden" id="mid" name="mid" value="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pendingModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Cambiar estatus de miembro</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Está seguro que desea cambiar el estatus del miembro a pendiente?</p>
+                <p class="debug-url"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary pending">Aceptar</button>
+                <form id="formPending" name="formPending" method="POST" action="<?php echo $this->url(array('controller' => 'members', 'action' => 'pending')); ?>">
+                    <input type="hidden" id="mid" name="mid" value="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="deleteModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Eliminar Producto</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Está seguro que desea eliminar el Producto?</p>
+                <p class="debug-url"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger delete">Borrar</button>
+                <form id="formDelete" name="formDelete" method="POST" action="<?php echo $this->url(array('controller' => 'productos', 'action' => 'delete')); ?>">
+                    <input type="hidden" id="id" name="id" value="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

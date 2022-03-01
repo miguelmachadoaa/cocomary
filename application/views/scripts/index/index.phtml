@@ -1,0 +1,275 @@
+        <!--banner-->
+        <div class="banner-w3">
+            <div class="demo-1">            
+                <div id="example1" class="core-slider core-slider__carousel example_1">
+                    <div class="core-slider_viewport">
+                        <div class="core-slider_list">
+
+                            <?php foreach ($this->sliders as $slider): ?>
+                               <div class="core-slider_item">
+                                <img src="<?php echo $this->baseUrl($slider->imagen); ?>" class="img-responsive" title="Tienda Cocomary" alt="Tienda Cocomary">
+                            </div> 
+                            <?php endforeach ?>
+                            
+                             
+                         </div>
+                    </div>
+                    <div class="core-slider_nav">
+                        <div class="core-slider_arrow core-slider_arrow__right"></div>
+                        <div class="core-slider_arrow core-slider_arrow__left"></div>
+                    </div>
+                    <div class="core-slider_control-nav"></div>
+                </div>
+            </div>
+           
+
+        </div>  
+        <!--banner-->
+
+        <script>
+            $('#example1').coreSlider({
+              pauseOnHover: false,
+              interval: 3000,
+              controlNavEnabled: true
+            });
+
+            </script>
+
+            <?php $pag = array(); ?>
+            <?php foreach ($this->productos_pagina as $pro_pag){ 
+                $pag[]=$pro_pag;
+             } ?>
+            
+            <!--content-->
+        <div class="content">
+            
+            <!--new-arrivals-->
+                <div class="new-arrivals-w3agile">
+                    <div class="container">
+                        <h2 class="tittle">Nuevos Productos</h2>
+                        <div class="arrivals-grids">
+      <?php   $ObjFotos = new Application_Model_DbTable_Fotos(); ?>
+
+                                <?php foreach ($this->aleatorios as $aleatorio): ?>
+                                    
+<?php $fotos=$ObjFotos->fetchRow('id_solicitud="'.$aleatorio->id.'"'); ?>
+
+                            <div class="col-sm-3 arrival-grid simpleCart_shelfItem" style="margin-bottom: 1em;">
+                                <div class="grid-arr" style="border-radius: 1em;">
+                                    <div  class="grid-arrival">
+                                        <figure>        
+                                            <a href="<?php echo $this->baseUrl('productos/ver/id/'.$aleatorio->id); ?>" class="new-gri" data-toggle="modal" data-target="#myModal1">
+                                                <div class="grid-img">
+                                                    <img  style="height: 250px;" src="<?php echo $this->baseUrl('assets/images/'.$fotos['foto']); ?>" class="img-responsive"  title="<?php echo $aleatorio->nombre; ?>" alt="<?php echo $aleatorio->nombre; ?>">
+                                                </div>
+                                                        
+                                            </a>        
+                                        </figure>   
+                                    </div>
+                                   
+                                    
+                                    <div class="women" style="padding-left: 1em; padding-right: 1em;">
+                                        <span class="size" style="font-size: 0.7em;text-align: left;"><?php echo $aleatorio->unidad; ?> </span>
+                                        <h6 style="height: 1.5em; text-align: left;"><a href="<?php echo $this->baseUrl('productos/ver/id/'.$aleatorio->id); ?>"><?php echo $aleatorio->nombre; ?></a></h6>
+                                        
+
+                                        <p style="text-align: left;"><em class="item_price">$<?php echo intval($aleatorio->oferta) ?></em></p>
+                                        
+                                        <a style="color: #fff;background-color: #ff0398;border-color: #ff0398; width: 100%; border-radius: 1em;" href="<?php echo $this->baseUrl('productos/ver/id/'.$aleatorio->id); ?>" data-text="Agregar Al Carrito" class="btn btn-primary">Comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                                <?php endforeach ?>
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--banner-bottom-->
+                <div class="ban-bottom-w3l">
+                    <div class="container">
+                        <div class="col-md-3 ban-bottom">
+                            <div class="ban-top">
+                                <img src="<?php echo $pag[0]['imagen']; ?>" class="img-responsive"  title="<?php echo $pag[0]['titulo']; ?>" alt="<?php echo $pag[0]['titulo']; ?>"/>
+                                <div class="ban-text">
+                                    <h4><?php echo $pag[0]['titulo']; ?></h4>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-3 ban-bottom">
+                            <div class="ban-top">
+                                <img src="<?php echo $pag[1]['imagen']; ?>" class="img-responsive" title="<?php echo $pag[1]['titulo']; ?>"  alt="<?php echo $pag[1]['titulo']; ?>"/>
+                                <div class="ban-text">
+                                    <h4><?php echo $pag[1]['titulo']; ?></h4>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-3 ban-bottom">
+                            <div class="ban-top">
+                                <img src="<?php echo $pag[2]['imagen']; ?>" class="img-responsive" title="<?php echo $pag[2]['titulo']; ?> alt="<?php echo $pag[2]['titulo']; ?>"/>
+                                <div class="ban-text">
+                                    <h4><?php echo $pag[2]['titulo']; ?></h4>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-3 ban-bottom">
+                            <div class="ban-top">
+                                <img src="<?php echo $pag[3]['imagen']; ?>" class="img-responsive" title="<?php echo $pag[3]['titulo']; ?>" alt="<?php echo $pag[3]['titulo']; ?>"/>
+                                <div class="ban-text">
+                                    <h4><?php echo $pag[3]['titulo']; ?></h4>
+                                </div>
+                               
+                            </div>
+                        </div>
+                       
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            <!--banner-bottom-->
+
+
+
+            <!--new-arrivals-->
+                <!--accessories-->
+            <div class="" style="    text-align: center;    padding: 10em 0;"   >
+
+
+                <div class="container">
+
+                    <div class="row">
+
+                    <div class="col-sm-12">
+                        <h3 style="text-align: center;    font-size: 3em;    color: #ff0398; text-shadow:none" class="tittle"><?php echo   $this->ingresos_pag['titulo']; ?></h3>                
+                    </div>
+                        
+                        <div class="col-sm-6">
+                           
+                            <h1 style="font-size: 2em; color: #888; line-height: 1.5;    padding-top: 1em;"><?php echo   $this->ingresos_pag['contenido']; ?></h1>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <img src="<?php echo $this->ingresos_pag['imagen']; ?>" class="img-responsive" title="<?php echo $this->ingresos_pag['titulo']; ?> alt="<?php echo $this->ingresos_pag['titulo']; ?>"/>
+                        </div>
+                    </div>
+                    
+
+                    <div class="button">
+                        <a class="btn btn-default" href="<?php echo     $this->baseUrl('blog/ver/id/1596899651'); ?>" class="button1" style="border-radius: 0px;    padding: 0.5em 4em;" > Saber Mas</a>
+                    </div>
+
+                </div>
+            </div>
+            <!--accessories-->
+            <!--Products-->
+                <div class="product-agile">
+                    <div class="container">
+                        <h3 class="tittle1"> Mas Vendidos</h3>
+                        <div class="slider">
+                            <div class="callbacks_container">
+                                <ul class="rslides" id="slider" style="padding: 1em 0em;">
+                                    <li>     
+                                        <div class="caption">
+<?php   $ObjFotos = new Application_Model_DbTable_Fotos(); ?>
+                                            <?php foreach ($this->limpieza as $limp): ?>
+                                <?php $fotos=$ObjFotos->fetchRow('id_solicitud="'.$limp->id.'"'); ?>
+
+                                                    <div class="col-sm-3 cap-left simpleCart_shelfItem">
+                                                <div class="grid-arr" style="height: 31em; border-radius: 1em;">
+                                                    <div  class="grid-arrival">
+                                                        <figure>        
+                                                            <a href="<?php echo $this->baseUrl('productos/ver/id/'.$limp->id); ?>">
+                                                                <div class="grid-img">
+                                                                    <img style="height: 250px;" src="<?php echo $this->baseUrl('assets/images/'.$fotos['foto']); ?>" class="img-responsive" title="<?php echo  $limp->nombre ?>" alt="<?php echo  $limp->nombre ?>">
+                                                                </div>
+                                                                            
+                                                            </a>        
+                                                        </figure>   
+                                                    </div>
+                                                    
+                                                    <div class="women" style="padding-left: 1em; padding-right: 1em;">
+                                        <span class="size" style="font-size: 0.7em;text-align: left;"><?php echo $limp->unidad; ?> </span>
+                                        <h6 style="height: 1.5em; text-align: left;"><a href="<?php echo $this->baseUrl('productos/ver/id/'.$limp->id); ?>"><?php echo $limp->nombre; ?></a></h6>
+                                        
+
+                                        <p style="text-align: left;"><em class="item_price">$<?php echo intval($limp->oferta) ?></em></p>
+                                        
+                                        <a style="color: #fff;background-color: #ff0398;border-color: #ff0398; width: 100%; border-radius: 1em;" href="<?php echo $this->baseUrl('productos/ver/id/'.$limp->id); ?>" data-text="Agregar Al Carrito" class="btn btn-primary">Comprar</a>
+                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                                
+                                            <?php endforeach ?>
+
+
+                                            
+                                            
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--Products-->
+            <div class="latest-w3">
+                <div class="container">
+                    <h3 class="tittle1">Nuestro Blog</h3>
+                    <div class="latest-grids">
+
+                        <?php foreach ($this->noticias as $noticia): ?>
+                            <div class="col-sm-4 latest-grid">
+                            <div class="latest-top">
+                                <a href="<?php echo $this->baseUrl('blog/ver/id/'.$noticia->id); ?>"><img  src="<?php echo $this->baseUrl($noticia->foto); ?>" class="img-responsive" title="<?php echo $noticia->titulo; ?>"  alt="<?php echo $noticia->titulo; ?>">
+                                <div class="latest-text"></a>
+                                    <h4><?php echo $noticia->titulo; ?></h4>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <?php endforeach ?>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+            </div>
+                
+            <!--new-arrivals-->
+        </div>
+
+        <section>
+            <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p>Compra online Segura</p>
+                    <p>Compra en linea y recibelo en la puerta de tu casa</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>Pagos Contraentrega</p>
+                    <p>Cancelas al recibir los productos a nivel nacional</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>Entrega Maximo en 48 Horas </p>
+                        <p>Recibe tus compras hasta 2 dias despues de solicitado</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>EVenta Telefonica </p>
+                    <p>Si necesitas asesoramiento para realizar tu compra, llámanos</p>
+                </div>
+            </div>
+            </div>
+        </section>

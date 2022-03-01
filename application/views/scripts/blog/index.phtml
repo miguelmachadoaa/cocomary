@@ -1,0 +1,89 @@
+
+   <!--banner-->
+        <div class="" style="padding-bottom: 2em;color: #909090;padding-top: 1em; text-align: center;">
+            <div class="container">
+                <h3>
+                  <a style="color: #909090; font-size: 0.75em;" href="<?php echo $this->baseUrl('/'); ?>">Inicio</a> / 
+                  <a style="color: #ff0398; font-size: 0.75em;" href="#">Noticias</a> </h3>
+            </div>
+        </div>
+    <!--banner-->
+
+
+
+
+<section class="blog-post">
+        <!-- Page Content -->
+    <div class="container">
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Blog Post Content Column -->
+            <br>
+        <div class="col-sm-12">
+
+            <div class="row">
+
+              <br>
+
+                <?php foreach ($this->related as $new): ?>
+
+                <div class="col-sm-6 " >
+
+                <div class=" row" style="padding: 0;    margin: 0;    /* padding-bottom: 1em; */    box-shadow: rgb(1 1 1 / 5%) 1px 1px 5px 0px;    border-radius: 1em; margin-top: 1em">
+                  
+                  <div class="col-sm-5 col-xs-12" style="padding: 0;">
+
+                    <a href="<?php echo $this->baseUrl('/blog/ver/id/').$new['id']; ?>"><img style="" class="img-responsive blogpost-img-w3ls" src="<?php echo $this->baseUrl('/').$new['foto']; ?>" alt="<?php echo utf8_encode($new['titulo']); ?>" title="<?php echo $new['titulo']; ?>"></a>
+                    
+                  </div>
+
+                  <div class="col-sm-7 col-xs-12" style="text-align: center;     color: #333;     background: #fff;     padding: 25px;     font-size: 2em;     border-radius: 1em;">
+                    
+                    <?php echo utf8_encode($new['titulo']); ?>
+
+                  </div>
+
+                </div>
+            </div>
+             
+            <?php endforeach ?>
+                
+            </div>  
+
+        </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-sm-12 blog-post-w3layouts">
+        
+         <!-- Blog Categories Well -->
+         <div class="col-sm-12" style="margin-top: 2em;">
+            
+               <div class=" blog-post-agileits">
+                    <!--h4 class="blogpost-w3lsagile">Etiquetas</h4-->
+                    <div class="row">
+                      <div class="col-lg-12">
+
+                      <?php foreach ($this->etiquetas as $new): ?>
+
+                            <a href="<?php echo $this->baseUrl('/blog/tags/id/').$new['descripcion']; ?>"> <span class="badge"><?php echo $new['descripcion']; ?></span> </a>
+                        
+                      <?php endforeach ?>
+                        
+                      </div>
+                    </div>
+                    <!-- /.row -->
+                  </div>
+
+          </div>
+
+        
+         
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+        
+    </div>
+    <!-- /.container -->
+</section>  

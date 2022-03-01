@@ -1,0 +1,24 @@
+Site@@@site:yourdomain.com
+Intext@@@intext:yourkeyword
+Allintext@@@allintext:yourkeyword
+Allintitle@@@allintitle:yourkeyword
+Inurl@@@inurl:yourkeyword
+Allinurl@@@allinurl:yourkeyword
+Filetype@@@filetype:pdf
+OR@@@OR keyword
+AND@@@AND keyword
+AROUND(X)@@@AROUND(12) youkeyword
+FB pages@@@site:facebook.com+inurl:about
+FB groups@@@site:facebook.com/groups
+FB photos@@@site:facebook.com+inurl:photos
+TW tweets@@@site:twitter.com+inurl:status
+IG posts@@@site:instagram.com/p
+YT videos@@@site:youtube.com+inurl:watch
+Yahoo news@@@site:news.yahoo.com inurl:html
+Amazon products@@@site:amazon.com inurl:/dp/
+Web forums@@@inurl:forums+OR+intitle:forums+OR+intitle:foro
+Disqus comments@@@%22Powered+by+Disqus%22
+Facebook comments@@@%22facebook+comments+plugin%22
+Blogspot comments@@@site:blogspot.com+inurl:html
+Wordpress comments@@@%22powered+by+wordpress%22+AND+%22leave+a+reply%22
+Wordpress.com comments@@@site:wordpress.com+%22introduce+tu+comentario%22+OR+%22enter+your+comment%22

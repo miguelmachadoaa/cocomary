@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
+
+  <style>
+    body {
+  margin: 1rem 0;
+}
+
+.carousel-item {
+  display: block;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.6s ease;
+}
+.slide-leave-to {
+  transform: translateX(-100%);
+  position: absolute;
+  top: 0;
+}
+.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-next.slide-leave-to {
+  transform: translateX(-100%);
+  position: absolute;
+  top: 0;
+}
+.slide-next.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-prev.slide-leave-to {
+  transform: translateX(100%);
+  position: absolute;
+  top: 0;
+}
+.slide-prev.slide-enter {
+  transform: translateX(-100%);
+}
+  </style>
+
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+
+      
+
+      <carousel></carousel>
+
+      <div class="row">
+
+        <h3>Nuevos Productos</h3>
+
+        <product-list
+          v-for="item in productos"
+          v-bind:product="item"
+          v-bind:key="item.id">
+        </product-list>
+        
+      </div>
+
+
+       <div class="row">
+
+        <h3>Productos Mas Vendidos</h3>
+
+        <product-list
+          v-for="item in vendidos"
+          v-bind:product="item"
+          v-bind:key="item.id">
+        </product-list>
+        
+      </div>
+
+
+
+  </div>
+  
+  </div>
+
+  <script>
+
+
+
+Vue.component('carousel-control', {
+  props: ['order'],
+  template: '<a @click.prevent="handleClick" :class="buttonClass" href="#carouselExampleControls" role="button" :data-slide="order">\
+      <span :class="iconClass" aria-hidden="true"></span>\
+      <span class="sr-only"><slot></slot></span>\
+    </a>',
+  data() {
+    return {
+      buttonClass: 'carousel-control-${this.order}'
+    }
+  },
+  computed: {
+    iconClass() {
+      return '${this.buttonClass}-icon';
+    }
+  },
+  methods: {
+    handleClick(event) {
+      if (this.order === 'next') {
+        bus.$emit('goNext');
+      } else if (this.order === 'prev') {
+        bus.$emit('goPrev');
+      }
+    }
+  }
+});
+
+Vue.component('carousel-item', {
+  props: ['source', 'text', 'active', 'directionClass'],
+  template: '<transition name="slide">\
+      <div class="carousel-item" :class="directionClass" v-show="active">\
+        <img class="d-block w-100" :src="source" :alt="text">\
+      </div>\
+    </transition>'
+});
+
+Vue.component('carousel', {
+  template: '<div id="carouselExampleControls" class="carousel slide">\
+    <div class="carousel-inner">\
+      <carousel-item v-for="image in images" :source="image.source" :text="image.text" :key="image.id" :active="image.isActive" :directionClass="directionClass"></carousel-item>\
+    </div>\
+    <carousel-control order="prev">Previous</carousel-control>\
+    <carousel-control order="next">Next</carousel-control>\
+  </div>',
+  data() {
+    return {
+      directionClass: '',
+      images: [
+        {
+          id: 0,
+          source: 'http://tiendacocomary.com/assets/img/324b0c8c90f4764f8808525b170255ae.jpg',
+          text: 'Black Panther',
+          isActive: true
+        },
+        {
+          id: 1,
+          source: 'http://tiendacocomary.com/assets/img/a49efc98af6c97071c8e561d81f536b5.jpg',
+          text: 'Infinity Countdown',
+          isActive: false
+        },
+        {
+          id: 2,
+          source: 'http://tiendacocomary.com/assets/img/d0fed928739a0ae275f0eacc5743270a.jpg',
+          text: 'Marvel\'s Jessica Jones',
+          isActive: false
+        }
+      ]
+    }
+  },
+  methods: {
+    getActiveIndex() {
+      return this.images.findIndex(obj => obj.isActive);
+    },
+    next() {
+      const activeIndex = this.getActiveIndex();
+      let nextIndex = activeIndex + 1;
+      let activeItem;
+      let nextItem;
+
+      if (nextIndex > this.images.length - 1) {
+        nextIndex = 0;
+      }
+      activeItem = this.images[activeIndex];
+      nextItem = this.images[nextIndex];
+
+      nextItem.isActive = true;
+      activeItem.isActive = false;
+      this.directionClass = 'slide-next';
+    },
+    prev() {
+      const activeIndex = this.getActiveIndex();
+      let prevIndex = activeIndex - 1;
+      let activeItem;
+      let prevItem;
+
+      if (prevIndex < 0) {
+        prevIndex = this.images.length - 1;
+      }
+      activeItem = this.images[activeIndex];
+      prevItem = this.images[prevIndex];
+
+      prevItem.isActive = true;
+      activeItem.isActive = false;
+      this.directionClass = 'slide-prev';
+    }
+  },
+  created() {
+    bus
+      .$on('goPrev', this.prev)
+      .$on('goNext', this.next);
+  }
+});
+
+
+const bus = new Vue();
+
+    Vue.component('product-list', {
+      props: ['product'],
+      template: '<div class="card col-3" ><img :src="product.foto" class="card-img-top" :alt="product.nombre"> <div class="card-body"> <h5 class="card-title">{{product.nombre}}</h5> <h6 class="card-subtitle mb-2 text-muted">{{product.precio}}</h6> <p class="card-text">{{product.seo_descripcion}}.</p> <a href="#" class="card-link">Card link</a> <a href="#" class="card-link">Another link</a> </div> </div>'
+    });
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+        productos: [],
+        vendidos: []
+      },
+      created: function(){
+        
+        this.$http.get('http://tiendacocomary.com/ajax/listadoproductos').then(function(response){
+           this.productos = response.body;
+           for(i in this.productos){
+                this.productos[i].foto="http://tiendacocomary.com/assets/images/"+this.productos[i].foto; 
+                
+            }
+        }, function(){
+           alert('Error!');
+        });
+
+        this.$http.get('http://tiendacocomary.com/ajax/listadoproductos').then(function(response){
+           this.vendidos = response.body;
+
+           for(i in this.vendidos){
+                this.vendidos[i].foto="http://tiendacocomary.com/assets/images/"+this.vendidos[i].foto; 
+                
+            }
+
+        }, function(){
+           alert('Error!');
+        });
+     }
+    })
+  </script>
+</body>
+</html>

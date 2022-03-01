@@ -1,0 +1,18 @@
+
+<?php 
+
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+
+$data = array();
+
+foreach ($this->producto as $key => $value) {
+	$data[$key]=$value;
+}
+
+$data['foto']='http://tiendacocomary.com/assets/images/'.$this->foto['foto'];
+
+echo json_encode($data);
+ ?>

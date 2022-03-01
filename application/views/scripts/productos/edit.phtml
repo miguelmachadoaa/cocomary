@@ -1,0 +1,133 @@
+<div class="container-fluid">
+    <h1 class="page-header">Registro de Producto</h1>
+    <div style="position: absolute; z-index: 9999; <?php echo ($this->auth->getIdentity()->role === 'administrador') ? 'display:block;' : 'display:none;'; ?>">
+    </div>
+    <div class="row">
+
+
+
+
+            <!--++++++++++++++++++++ Comienzo del formulario ++++++++++++++++++-->
+
+<form id="form_productos" name="form_productos" enctype="multipart/form-data" action="<?php echo $this->baseUrl('/productos/edit') ?>" method="post"><div>
+<input type="hidden" id="id" name="id" value="<?php echo $this->id;?>">
+
+
+<div class="form-group"><label for="cedula" class="required">Codigo *</label>
+
+<input type="text" name="codigo" id="codigo" value="<?php echo $this->dcodigo;?>" class="form-control" placeholder="Codigo"></div>
+
+<div class="form-group">
+
+<label for="estado" class="required">Categoria  *</label>
+<?php echo $this->dcategoria;  ?>
+<select name="categoria" id="categoria" class="form-control">
+    
+            <option value="">--Categoria--</option>
+                    <?php foreach ($this->categorias as $categoria): ?>
+                    <option value="<?php echo $categoria->id; ?>" <?php if($categoria->id==$this->dcategoria){ echo "selected";} ?> ><?php echo utf8_encode($categoria->titulo); ?></option>
+                    <?php endforeach; ?>
+
+
+</select>
+
+</div>
+
+
+<div class="form-group"><label for="nombre" class="required">Nombre *</label>
+
+<input type="text" name="nombre" id="nombre" value="<?php echo $this->dnombre;?>" class="form-control span3" placeholder="Nombre">
+
+</div>
+
+<div class="form-group">
+<label for="email" class="optional">Descripcion Corta</label>
+
+<textarea  name="descripcion_corta" id="descripcion_corta" value="" class="form-control" placeholder="Descripcion Corta" ><?php echo $this->ddescripcion_corta;?></textarea>
+
+</div>
+
+
+
+<div class="form-group">
+<label for="email" class="optional">Descripcion</label>
+
+<textarea  name="descripcion" id="descripcion" value="" class="form-control" placeholder="Descripcion" ><?php echo $this->ddescripcion;?></textarea>
+
+</div>
+
+
+<div class="form-group"><label for="email" class="optional">Unidad</label>
+
+<input type="text" name="unidad" id="unidad" value="<?php echo $this->dunidad;?>" class="form-control" placeholder="Saco de 1kg" required="1">
+
+</div>
+
+
+<div class="form-group"><label for="email" class="optional">Costo</label>
+
+<input type="text" name="costo" id="costo" value="<?php echo $this->dcosto;?>" class="form-control" placeholder="840.00" required="1">
+
+</div>
+
+
+
+
+<div class="form-group"><label for="email" class="optional">Precio</label>
+
+<input type="text" name="precio" id="precio" value="<?php echo $this->dprecio;?>" class="form-control" placeholder="840.00" required="1">
+
+</div>
+
+
+<div class="form-group"><label for="email" class="optional">Oferta</label>
+
+<input type="text" name="oferta" id="oferta" value="<?php echo $this->doferta;?>" class="form-control" placeholder="840.00" required="1">
+
+</div>
+
+
+
+ <div class="col-sm-12">
+      
+    <div class="carga">
+         <div class="row">
+             <?php foreach ($this->fotos as $foto ): ?>
+
+                <div class='col-sm-2'>
+
+                        <img title='Click para Eliminar' class='img-rounded' onclick='borrarimagen("<?php   echo $foto->id ?>", "<?php  echo $foto->id_solicitud ?>")' src='<?php   echo $this->baseUrl('/assets/images/').$foto->foto; ?>' width='100px' >
+
+                </div>
+    
+<?php endforeach ?>
+         </div> 
+    </div>
+    <div class="loader">  </div>
+
+    <div id="fileuploader"> Cargar Imagenes
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+<div id="buttons-label">&#160;</div><div id="buttons-element"><fieldset id="fieldset-buttons"><div>
+
+<input type="submit" name="btn_submit" id="btn_submit" value="Guardar" class="btn btn-default">
+
+<a name="btn_cancel" href="wake/productos" id="btn_cancel" type="button" class="btn btn-danger">Cancelar</a></div></fieldset></div></div></form> 
+
+
+
+
+
+    </div>
+    
+</div>
